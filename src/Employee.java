@@ -1,8 +1,9 @@
-public class Employee extends Person {
+class Employee extends Person {
     private String position;
     private double salary;
 
     public Employee() {
+        super();
     }
 
     public Employee(String name, String surname, String position, double salary) {
@@ -11,25 +12,22 @@ public class Employee extends Person {
         this.salary = salary;
     }
 
-    public String position() {
+    @Override
+    public String toString() {
+        return String.format("Employee: %s", super.toString());
+    }
+    public String getPosition() {
         return position;
     }
 
-    public void position(String position) {
+    public void setPosition(String position) {
         this.position = position;
     }
-
-    public double salary() {
+    public double getSalary() {
         return salary;
     }
-
-    public void salary(double salary) {
+    public void setSalary(double salary) {
         this.salary = salary;
-    }
-
-    @Override
-    public String toString() {
-        return "Employee: " + getId() + ". " + name() + " " + surname() + " earns " + salary + " tenge";
     }
 
     @Override
