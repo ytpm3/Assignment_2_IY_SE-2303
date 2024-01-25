@@ -1,29 +1,20 @@
-public class Student extends Person {
+class Student extends Person {
     private double gpa;
-
-    public Student() {
-    }
-
+    public Student() { super(); }
     public Student(String name, String surname, double gpa) {
         super(name, surname);
         this.gpa = gpa;
     }
+    @Override
+    public String toString() { return String.format("Student: %s", super.toString()); }
 
-    public double gpa() {
+    public double getGpa() {
         return gpa;
     }
 
-    public void gpa(double gpa) {
-        this.gpa = gpa;
-    }
+    public void setGpa(double gpa) {this.gpa = gpa; }
 
     @Override
-    public String toString() {
-        return "Student: " + getId() + ". " + name() + " " + surname() + " earns " + getPaymentAmount() + " tenge";
-    }
+    public double getPaymentAmount() {return (gpa > 2.67) ? 36660.00 : 0.00; }
 
-    @Override
-    public double getPaymentAmount() {
-        return 0.00;
-    }
 }
